@@ -375,6 +375,10 @@ sub discover {
             };
     }
 
+    foreach (keys %devices) {
+        delete $devices{$_}
+            unless $devs{$_};
+    }
     foreach (keys %devs) {
         $devices{$_} = shared_clone($devs{$_});
     }
